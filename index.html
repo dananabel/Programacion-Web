@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOKIES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #f8f3e6;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        .menu-container {
+            position: relative;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #795548;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: #5D4037;
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            overflow-y: auto;
+        }
+        .menu.active {
+            right: 0;
+        }
+        .close-icon {
+            font-size: 30px;
+            color: #F5E0D3;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .menu a {
+            display: block;
+            padding: 20px;
+            color: #F5E0D3;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .menu a:hover {
+            color: #FFF;
+        }
+        .job-form {
+            display: none;
+            width: 80%;
+            max-width: 400px;
+            background-color: #FFF;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .job-form h2 {
+            margin-bottom: 20px;
+            color: #5D4037;
+        }
+        .job-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .job-form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .job-form button {
+            padding: 10px;
+            background-color: #5D4037;
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .job-form button:hover {
+            background-color: #795548;
+        }
+        .title-container {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .main-title-image {
+            max-width: 40%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .main-title {
+            font-size: 5rem;
+            color: #795548;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin: 0;
+            padding: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .main-title:hover {
+            transform: scale(1.05);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-text {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px 0 0; /* Solo padding superior */
+            color: #5d4037;
+        }
+        .image-gallery {
+            max-width: 1000px;
+            margin: 20px auto 0;
+        }
+        .gallery-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .gallery-image {
+            width: calc(50% - 10px);
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .gallery-row {
+                flex-direction: column;
+            }
+            .gallery-image {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .main-title-image {
+                max-width: 60%;
+            }
+            .header-text {
+                font-size: 1rem;
+                margin-top: 5px; /* Aún menos espacio en pantallas más pequeñas */
+            }
+        }
+        @media (max-width: 480px) {
+            .main-title-image {
+                max-width: 80%;
+            }
+            .header-text {
+                font-size: 0.9rem;
+            }
+        }
+        #catalogoSection {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff9c4;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .close-catalog {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #795548;
+            z-index: 1001;
+        }
+        .cookie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding-top: 60px;
+        }
+        footer {
+            background-color: #795548; /* Fondo marrón */
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-text {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #fff9c4; /* Texto en color claro */
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff9c4; /* Texto en color claro */
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 2px solid #fff9c4; /* Borde en color claro */
+            border-radius: 30px;
+        }
+        .instagram-link:hover {
+            background-color: #fff9c4;
+            color: #795548;
+        }
+        .instagram-link:hover svg {
+            fill: #795548;
+        }
+        .instagram-link svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            fill: currentColor;
+        }
+        .instagram-link span {
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .footer-text {
+                font-size: 1em;
+            }
+            
+            .instagram-link span {
+                font-size: 1em;
+            }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f3e6; /* Volvemos al color de fondo original */
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: transparent; /* Hacemos el encabezado transparente para que se vea el color de fondo */
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        .menu-container {
+            position: relative;
+        }
+        .menu-icon {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .menu-icon span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #795548;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #5D4037;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+            min-width: 200px;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .menu.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .menu a {
+            display: block;
+            padding: 15px 20px;
+            color: #F5E0D3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+        .menu a:hover {
+            background-color: #795548;
+            color: #FFF;
+        }
+        .content {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        /* Estilos para todos los textos */
+        p, h1, h2, h3, h4, h5, h6 {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .title-container {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .main-title-image {
+            max-width: 40%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .header-text {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px 0 0;
+            color: #5d4037;
+        }
+        .image-gallery {
+            max-width: 100%;
+            margin: 20px auto 0;
+        }
+        .info-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background-color: transparent; /* Usa el fondo de la página */
+        }
+        .info-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hours, .location {
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        h2 {
+            color: #5d4037;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #795548;
+        }
+        .days, .time {
+            color: #795548;
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .days {
+            font-weight: bold;
+        }
+        .location p {
+            color: #795548;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .map-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #795548;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .map-link:hover {
+            background-color: #5d4037;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .cookie {
+            font-size: 1.2em;
+            margin: 0 5px;
+        }
+        @media (max-width: 768px) {
+            .main-title-image {
+                max-width: 60%;
+            }
+            .header-text {
+                font-size: 1rem;
+            }
+            .info-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hours, .location {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-title-image {
+                max-width: 80%;
+            }
+            .header-text {
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .info-section {
+                padding: 30px 15px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .days, .time, .location p {
+                font-size: 1.1em;
+            }
+        }
+        .cv-form-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 400px;
+            width: 90%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+        .cv-form-container h2 {
+            color: #5d4037;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #795548;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d7ccc8;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #795548;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #5d4037;
+        }
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 250px;
+                transform: translateX(100%);
+            }
+            
+            .menu.active {
+                transform: translateX(0);
+            }
+            
+            .menu a {
+                padding: 20px;
+            }
+        }
+        .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #F5E0D3;
+            cursor: pointer;
+        }
+        .fullscreen-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(93, 64, 55, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .form-content {
+            position: relative;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #5D4037;
+            cursor: pointer;
+        }
+
+        .form-content h2 {
+            color: #5D4037;
+            margin-bottom: 20px;
+        }
+
+        .form-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-content input,
+        .form-content textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-content button {
+            padding: 10px;
+            background-color: #5D4037;
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-content button:hover {
+            background-color: #795548;
+        }
+        .fullscreen-catalog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(93, 64, 55, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .catalog-content {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .close-catalog {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #5D4037;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-catalog:hover {
+            color: #795548;
+        }
+
+        .cookie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cookie-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .cookie-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cookie-item button {
+            background-color: #5D4037;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cookie-item button:hover {
+            background-color: #795548;
+        }
+
+        #cart {
+            margin-top: 30px;
+            border-top: 2px solid #5D4037;
+            padding-top: 20px;
+        }
+
+        #cart button {
+            background-color: #5D4037;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        #cart button:hover {
+            background-color: #795548;
+        }
+        .pay-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            margin: 10px;
+            background-color: #5D4037;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .pay-button:hover {
+            background-color: #795548;
+        }
+        .job-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #5D4037; /* Color que desees */
+            display: block; /* Para que el texto esté en una nueva línea */
+        }
+        /* Estilos para la sección "Conócenos" */
+        #conocenosSection {
+            display: none;
+            padding: 20px;
+            background-color: #f8f3e6;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .owner-photos {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .owner-photos img {
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="menu-container">
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="menu" id="myMenu">
+                    <span id="closeMenuIcon" class="close-icon" onclick="toggleMenu()" style="display: none;">&times;</span>
+                    <a href="#" onclick="toggleCatalogo()">¡Pedí online!</a>
+                    <a href="#" onclick="scrollToConocenos()">Conócenos</a> <!-- Cambiado a scrollToConocenos -->
+                    <a href="#">Antójate</a>
+                    <a href="#" onclick="showJobForm()">Trabaja con nosotros</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="title-container">
+            <img src="hola.png" alt="OOKIES" class="main-title-image">
+        </div>
+
+        <p class="header-text">
+            Bienvenidos al mundo de OOKIES, donde cada galleta es una obra maestra de sabor y textura. 
+            Desde nuestro pequeño horno en La Plata, hemos estado creando delicias artesanales que 
+            despiertan sonrisas y calientan corazones.
+        </p>
+
+        <div class="image-gallery">
+            <div class="gallery-row">
+                <img src="1.jpg" alt="Imagen 1" class="gallery-image">
+                <img src="2.jpg" alt="Imagen 2" class="gallery-image">
+            </div>
+            <div class="gallery-row">
+                <img src="3.jpg" alt="Imagen 3" class="gallery-image">
+                <img src="4.jpg" alt="Imagen 4" class="gallery-image">
+            </div>
+        </div>
+
+        <p class="header-text">
+            Nuestras cookies no son solo un postre, son una experiencia que combina ingredientes premium, 
+            recetas cuidadosamente perfeccionadas y un toque de amor en cada horneada. Ya sea que estés 
+            buscando un capricho para ti o un regalo especial para alguien querido, en OOKIES encontrarás 
+            el sabor perfecto para cada ocasión.
+        </p>
+
+        <!-- Nueva sección de "Conócenos" -->
+        <div id="conocenosSection">
+            <h2>Conócenos</h2>
+            <p>En un pequeño pueblo rodeado de colinas verdes y cielos despejados, vivían dos hermanos, Mateo y Sofía. Desde pequeños, compartieron un amor inquebrantable por la cocina, donde cada tarde se convertía en una aventura mágica.</p>
+            <p>Su hogar, un acogedor taller de repostería, estaba lleno de aromas dulces y risas contagiosas. Con cada galleta que horneaban, creaban no solo un postre, sino también recuerdos imborrables. Mateo, con su espíritu soñador, siempre buscaba nuevas recetas, mientras que Sofía, con su toque artístico, decoraba cada galleta como si fuera una obra de arte.</p>
+            <p>Un día, mientras exploraban un antiguo libro de recetas en el desván, encontraron una página amarillenta que hablaba de galletas mágicas que traían felicidad a quienes las probaban. Decidieron que debían recrear esa receta, y así nació <strong>OOKIES</strong>.</p>
+            <p>Con ingredientes frescos y un toque de amor, comenzaron a hornear galletas que no solo deleitaban el paladar, sino que también iluminaban el corazón. Cada bocado era una explosión de sabor, una invitación a recordar momentos felices y a crear nuevos.</p>
+            <p>Hoy, Mateo y Sofía comparten su pasión con el mundo, llevando su legado familiar a cada rincón. En OOKIES, cada galleta cuenta una historia, y cada cliente se convierte en parte de su viaje.</p>
+            <p>Te invitamos a unirte a esta aventura, a disfrutar de nuestras galletas y a ser parte de la historia de dos hermanos que, con amor y dedicación, han transformado su sueño en una realidad deliciosa.</p>
+            
+            <div class="owner-photos">
+                <img src="https://via.placeholder.com/200" alt="Mateo"> <!-- Imagen de Mateo -->
+                <img src="https://via.placeholder.com/200" alt="Sofía"> <!-- Imagen de Sofía -->
+            </div>
+        </div>
+
+        <!-- Nueva sección de información -->
+        <div class="info-section">
+            <div class="info-container">
+                <div class="hours">
+                    <h2>Horarios de Atención</h2>
+                    <div class="days">Miércoles | Jueves | Viernes | Sábados</div>
+                    <div class="time">15:00hs - 19:30hs</div>
+                </div>
+                <div class="location">
+                    <h2>Encuéntranos</h2>
+                    <p>Julian Alvarez 2795, Buenos Aires, Argentina</p>
+                    <a href="https://www.google.com/maps/place/Ookies/@-34.5848415,-58.4118449,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb54a40ccd019:0xaabfd4e530e07ff5!8m2!3d-34.5848415!4d-58.4118449!16s%2Fg%2F11l2mgd271?entry=ttu" target="_blank" class="map-link">
+                        Ver en Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="catalogoFullscreen" class="fullscreen-catalog">
+        <div class="catalog-content">
+            <span class="close-catalog" onclick="toggleCatalogo()">&times;</span>
+            <h2>Nuestro Catálogo</h2>
+            <div class="cookie-grid">
+                <div class="cookie-item">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e" alt="Chocolate Chip">
+                    <h3>Chocolate Chip</h3>
+                    <p>Clásica galleta con trozos de chocolate</p>
+                    <p class="price">$200</p>
+                    <button onclick="addToCart('Chocolate Chip', 200)">Agregar al carrito</button>
+                </div>
+                <div class="cookie-item">
+                    <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423" alt="Avena y Pasas">
+                    <h3>Avena y Pasas</h3>
+                    <p>Deliciosa galleta de avena con pasas</p>
+                    <p class="price">$180</p>
+                    <button onclick="addToCart('Avena y Pasas', 180)">Agregar al carrito</button>
+                </div>
+                <div class="cookie-item">
+                    <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c" alt="Mantequilla de Maní">
+                    <h3>Mantequilla de Maní</h3>
+                    <p>Suave galleta con mantequilla de maní</p>
+                    <p class="price">$220</p>
+                    <button onclick="addToCart('Mantequilla de Maní', 220)">Agregar al carrito</button>
+                </div>
+                <div class="cookie-item">
+                    <img src="https://images.unsplash.com/photo-1619149651177-b09092806f1a" alt="Doble Chocolate">
+                    <h3>Doble Chocolate</h3>
+                    <p>Intensa galleta de chocolate con chips</p>
+                    <p class="price">$230</p>
+                    <button onclick="addToCart('Doble Chocolate', 230)">Agregar al carrito</button>
+                </div>
+                <div class="cookie-item">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e" alt="Galleta de Vainilla">
+                    <h3>Galleta de Vainilla</h3>
+                    <p>Suave y aromática galleta con esencia de vainilla</p>
+                    <p class="price">$210</p>
+                    <button onclick="addToCart('Galleta de Vainilla', 210)">Agregar al carrito</button>
+                </div>
+            </div>
+            <div id="cart">
+                <h3>Tu Carrito</h3>
+                <ul id="cartItems"></ul>
+                <p>Total: $<span id="cartTotal">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="jobFormFullscreen" class="fullscreen-form">
+        <div class="form-content">
+            <span class="close-form" onclick="hideJobForm()">&times;</span>
+            <h2>Trabaja con nosotros</h2>
+            <form onsubmit="submitJobForm(event)">
+                <form action="https://formsubmit.co/dnabel@itba.edu.ar" method="POST" />
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Teléfono" required>
+                <label for="cvFile">Adjunta tu CV:</label>
+                <input type="file" id="cvFile" accept=".pdf,.doc,.docx" required>
+                <textarea placeholder="Cuéntanos sobre ti" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("myMenu");
+            var closeIcon = document.getElementById("closeMenuIcon");
+
+            menu.classList.toggle("active");
+
+            if (menu.classList.contains("active")) {
+                closeIcon.style.display = "block"; // Muestra la cruz
+            } else {
+                closeIcon.style.display = "none"; // Oculta la cruz
+            }
+        }
+
+        function toggleCatalogo() {
+            var catalogo = document.getElementById("catalogoFullscreen");
+            if (catalogo.style.display === "none" || catalogo.style.display === "") {
+                catalogo.style.display = "block";
+                document.body.style.overflow = "hidden";
+            } else {
+                catalogo.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        }
+
+        function scrollToConocenos() {
+            var conocenosSection = document.getElementById("conocenosSection");
+            conocenosSection.style.display = "block"; // Asegúrate de que la sección esté visible
+            conocenosSection.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+        }
+
+        function showJobForm() {
+            document.getElementById('jobFormFullscreen').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Previene el scroll en el body
+            toggleMenu(); // Cierra el menú después de seleccionar una opción
+        }
+
+        function hideJobForm() {
+            document.getElementById('jobFormFullscreen').style.display = 'none';
+            document.body.style.overflow = ''; // Restaura el scroll en el body
+        }
+
+        function submitJobForm(event) {
+            event.preventDefault();
+            // Aquí puedes agregar el código para procesar el formulario
+            console.log("Formulario enviado");
+            hideJobForm();
+        }
+
+        let cart = [];
+
+        function addToCart(item, price) {
+            cart.push({item, price});
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = document.getElementById("cartItems");
+            let cartTotal = document.getElementById("cartTotal");
+            cartItems.innerHTML = "";
+            let total = 0;
+            for (let item of cart) {
+                let li = document.createElement("li");
+                li.textContent = `${item.item} - $${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            }
+            cartTotal.textContent = total;
+        }
+
+        function pay(method) {
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío");
+                return;
+            }
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            alert(`Pago de $${total} procesado con ${method === 'tarjeta' ? 'tarjeta' : 'MercadoPago'}`);
+            cart = [];
+            updateCart();
+        }
+    </script>
+</body>
+<footer>
+    <div class="footer-content">
+        <p class="footer-text">Nacidos en LP. City Bell. ▶️ CABA. Palermo.</p>
+        <a href="https://www.instagram.com/ookies.ba/" target="_blank" class="instagram-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.058 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.947-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>@ookies.ba</span>
+        </a>
+    </div>
+</footer>
+</html>

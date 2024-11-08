@@ -10,43 +10,44 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
         
         * {
-            box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+            box-sizing: border-box; 
         }
 
         body {
-            margin: 0; /* Elimina márgenes del body */
-            padding: 0; /* Elimina padding del body */
-            font-family: 'Poppins', sans-serif; /* Asegúrate de que la fuente esté definida */
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f8f3e6; 
         }
 
         .container {
-            width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-            max-width: 1200px; /* Limita el ancho máximo si es necesario */
-            margin: 0 auto; /* Centra el contenedor */
-            padding: 20px; /* Agrega un poco de padding */
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
         }
 
         .header, .footer {
-            width: 100%; /* Asegura que el header y footer ocupen todo el ancho */
+            width: 100%; 
         }
 
         .cookie-grid {
-            display: grid; /* Usa grid para organizar las galletas */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta automáticamente el número de columnas */
-            gap: 20px; /* Espacio entre las galletas */
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
         }
 
         .cookie-item {
-            border: 1px solid #ddd; /* Estilo de borde para cada galleta */
-            border-radius: 8px; /* Bordes redondeados */
-            padding: 15px; /* Espacio interno */
-            text-align: center; /* Centra el texto */
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            padding: 15px; 
+            text-align: center;
         }
 
         .fullscreen-catalog, .fullscreen-form {
-            width: 100%; /* Asegura que el catálogo y el formulario ocupen todo el ancho */
-            height: 100%; /* Asegura que ocupen toda la altura */
-            overflow-y: auto; /* Permite el desplazamiento si es necesario */
+            width: 100%; 
+            height: 100%; 
+            overflow-y: auto; 
         }
         
         body {
@@ -185,10 +186,10 @@
         .header-text {
             font-size: 1.1rem;
             line-height: 1.4;
-            text-align: center; /* Centra el texto */
-            width: 100%; /* Asegura que el texto ocupe todo el ancho */
-            margin: 0; /* Elimina el margen para que ocupe todo el espacio */
-            padding: 0 20px; /* Agrega un poco de padding a los lados */
+            text-align: center; 
+            width: 100%;
+            margin: 0; 
+            padding: 0 20px; 
             color: #5d4037;
         }
         .image-gallery {
@@ -225,7 +226,7 @@
             }
             .header-text {
                 font-size: 1rem;
-                margin-top: 5px; /* Aún menos espacio en pantallas más pequeñas */
+                margin-top: 5px; 
             }
         }
         @media (max-width: 480px) {
@@ -265,7 +266,7 @@
             padding-top: 60px;
         }
         footer {
-            background-color: #795548; /* Fondo marrón */
+            background-color: #795548; 
             padding: 40px 0;
             margin-top: 60px;
         }
@@ -280,7 +281,7 @@
         .footer-text {
             font-size: 1.2em;
             margin-bottom: 20px;
-            color: #fff9c4; /* Texto en color claro */
+            color: #fff9c4; 
             font-weight: 500;
             line-height: 1.6;
         }
@@ -288,11 +289,11 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: #fff9c4; /* Texto en color claro */
+            color: #fff9c4; 
             font-weight: bold;
             transition: all 0.3s ease;
             padding: 10px 20px;
-            border: 2px solid #fff9c4; /* Borde en color claro */
+            border: 2px solid #fff9c4; 
             border-radius: 30px;
         }
         .instagram-link:hover {
@@ -325,7 +326,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f3e6; /* Volvemos al color de fondo original */
+            background-color: #f8f3e6; 
         }
         .container {
             max-width: 100%;
@@ -337,7 +338,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background-color: transparent; /* Hacemos el encabezado transparente para que se vea el color de fondo */
+            background-color: transparent; 
             width: 100%;
             box-sizing: border-box;
         }
@@ -440,26 +441,26 @@
         
         
         .info-container {
-            display: flex; /* Usar flexbox para el diseño en columnas */
-            justify-content: space-between; /* Espacio entre columnas */
-            margin-top: 20px; /* Espacio superior */
+            display: flex; 
+            justify-content: space-between; 
+            margin-top: 20px; 
         }
         .info-card {
-            flex: 1; /* Cada tarjeta ocupará el mismo espacio */
-            margin: 0 10px; /* Espacio entre tarjetas */
-            padding: 20px; /* Espaciado interno */
-            background-color: transparent; /* Sin fondo blanco */
-            border: none; /* Sin borde sobresalido */
-            box-shadow: none; /* Sin sombra */
+            flex: 1; 
+            margin: 0 10px; 
+            padding: 20px; 
+            background-color: transparent;
+            border: none; 
+            box-shadow: none; 
         }
         .info-card h3 {
-            margin-bottom: 10px; /* Espacio debajo del título */
-            color: #5D4037; /* Color del texto del título */
+            margin-bottom: 10px; 
+            color: #5D4037; 
         }
         .info-card .days, .info-card .time, .info-card p {
-            font-size: 1rem; /* Tamaño de fuente para el texto */
-            color: #333; /* Color del texto */
-            margin: 5px 0; /* Espacio entre líneas */
+            font-size: 1rem; 
+            color: #333; 
+            margin: 5px 0;
         }
         .hours, .location {
             text-align: center;
@@ -804,37 +805,37 @@
             color: #5D4037; /* Color que desees */
             display: block; /* Para que el texto esté en una nueva línea */
         }
-        /* Estilos para la sección "Conócenos" */
+       
         #conocenosSection, #antojateSection, .info-section {
-            padding: 20px; /* Espaciado interno */
-            margin: 20px 0; /* Espaciado externo */
-            border: none; /* Elimina el borde */
-            border-radius: 0; /* Elimina los bordes redondeados */
-            background-color: #f8f3e6; /* Color de fondo opcional */
+            padding: 20px; 
+            margin: 20px 0; 
+            border: none; 
+            border-radius: 0;
+            background-color: #f8f3e6; 
         }
         .owner-photos {
-            display: flex; /* Usar flexbox para alinear las imágenes en una fila */
-            justify-content: center; /* Centra las imágenes en la fila */
-            margin-top: 20px; /* Espacio superior */
+            display: flex; 
+            justify-content: center; 
+            margin-top: 20px; 
         }
         .owner-photo-container {
-            margin: 0 10px; /* Espacio entre las imágenes */
+            margin: 0 10px; 
         }
         .owner-photo {
-            width: 200px; /* Aumenta el ancho */
-            height: 200px; /* Aumenta la altura */
-            object-fit: cover; /* Mantiene la proporción */
-            border-radius: 10px; /* Bordes redondeados opcionales */
+            width: 200px; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px; 
         }
         .tiktok-link {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: #fff9c4; /* Texto en color claro */
+            color: #fff9c4; 
             font-weight: bold;
             transition: all 0.3s ease;
             padding: 10px 20px;
-            border: 2px solid #fff9c4; /* Borde en color claro */
+            border: 2px solid #fff9c4; 
             border-radius: 30px;
         }
 
@@ -852,54 +853,54 @@
         }
         .social-links {
             display: flex;
-            justify-content: center; /* Centra los enlaces */
-            gap: 20px; /* Espacio entre los enlaces */
+            justify-content: center; 
+            gap: 20px; 
         }
         .button-container {
-            display: flex; /* Usar flexbox para alinear elementos en línea */
-            align-items: center; /* Centra verticalmente los elementos */
+            display: flex; 
+            align-items: center; 
         }
 
         .cookie-quantity {
-            width: 50px; /* Ancho más pequeño para el contador */
-            margin-left: 10px; /* Espacio entre el botón y el contador */
-            font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+            width: 50px; 
+            margin-left: 10px; 
+            font-size: 0.9rem; 
         }
 
         .title-container {
             display: flex;
-            justify-content: center; /* Centra la imagen */
+            justify-content: center; 
         }
 
         .header-text-container {
-            max-width: 1000px; /* Ajusta esto al ancho máximo de tus imágenes */
-            margin: 0 auto; /* Centra el contenedor del texto */
-            padding: 20px; /* Agrega un poco de padding */
+            max-width: 1000px;
+            margin: 0 auto; 
+            padding: 20px; 
         }
 
         .header-text {
-            font-size: 1.1rem; /* Ajusta el tamaño de la fuente según sea necesario */
+            font-size: 1.1rem; 
         }
 
         .info-section h2 {
-            font-size: 1.7rem; /* Tamaño de fuente para los títulos */
-            color: #5D4037; /* Color del texto del título */
-            margin-bottom: 10px; /* Espacio debajo del título */
+            font-size: 1.7rem; 
+            color: #5D4037; 
+            margin-bottom: 10px; 
         }
 
         .info-section .days, .info-section .time, .info-section p {
-            font-size: 1rem; /* Tamaño de fuente para el texto */
-            color: #333; /* Color del texto */
-            margin: 5px 0; /* Espacio entre líneas */
+            font-size: 1rem; 
+            color: #333; 
+            margin: 5px 0; 
         }
 
         .aesthetic-gallery {
-            display: flex; /* Usar flexbox para alinear las imágenes en una fila */
-            justify-content: space-between; /* Espacio entre las imágenes */
+            display: flex; 
+            justify-content: space-between; 
         }
 
         .photo-container {
-            flex: 1; /* Cada imagen ocupará el mismo espacio */
+            flex: 1; 
             margin: 5px; /* Espacio entre las imágenes */
         }
 
@@ -939,28 +940,28 @@
             background-color: #f8f3e6; /* Color de fondo opcional */
         }
         .info-container {
-            display: flex; /* Cambiado a flex para alinear horizontalmente */
-            justify-content: space-between; /* Espacio entre columnas */
-            margin-top: 20px; /* Espacio superior */
+            display: flex; 
+            justify-content: space-between; 
+            margin-top: 20px; 
         }
         .info-card {
-            flex: 1; /* Cada tarjeta ocupará el mismo espacio */
-            margin: 0 10px; /* Espacio entre tarjetas */
-            padding: 20px; /* Espaciado interno */
-            background-color: transparent; /* Sin fondo blanco */
-            border: none; /* Sin borde sobresalido */
-            box-shadow: none; /* Sin sombra */
-            text-align: center; /* Centrar el texto */
+            flex: 1; 
+            margin: 0 10px; 
+            padding: 20px; 
+            background-color: transparent;
+            border: none; 
+            box-shadow: none; 
+            text-align: center; 
         }
         .info-card h3 {
-            margin-bottom: 10px; /* Espacio debajo del título */
-            color: #5D4037; /* Color del texto del título */
-            font-size: 1.5em; /* Aumentado tamaño de fuente */
+            margin-bottom: 10px; 
+            color: #5D4037; 
+            font-size: 1.5em; 
         }
         .info-card .days, .info-card .time, .info-card p {
-            font-size: 1rem; /* Tamaño de fuente para el texto */
-            color: #333; /* Color del texto */
-            margin: 5px 0; /* Espacio entre líneas */
+            font-size: 1rem;
+            color: #333;
+            margin: 5px 0; 
         }
         .hours, .location {
             text-align: center;
@@ -1299,6 +1300,14 @@
         .pay-button:hover {
             background-color: #795548;
         }
+
+        
+        .section {
+            margin: 20px 0; 
+            padding: 20px; 
+            background-color: #f8f3e6;
+            border-radius: 8px; 
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1343,25 +1352,24 @@
       
 
         <!-- Nueva sección de "Conócenos" -->
-        <div id="conocenosSection">
-            <h2>Conócenos</h2>
-            <p>Sofía y Mateo son dos hermanos nacidos en LP. City Bell. Desde pequeños, compartieron un amor inquebrantable por la cocina, donde cada tarde se convertía en una aventura mágica. En su hogar, un acogedor taller de repostería, los aromas dulces y las risas contagiosas llenaban el aire.Con el sol filtrándose a través de las ventanas, Sofía mezclaba ingredientes mientras Mateo exploraba recetas en viejos libros familiares. Juntos, creaban delicias que hacían que el corazón de cualquiera se derritiera: galletas de chocolate crujientes y pasteles decorados con flores comestibles.
-                Cada creación era una obra de arte, presentada en una mesa adornada con un mantel de lino blanco y jarrones de flores silvestres. Su pequeño taller se llenaba de clientes que buscaban un pedacito de felicidad, y con cada sonrisa recibida, Sofía y Mateo sabían que estaban un paso más cerca de hacer realidad su sueño de abrir su propia pastelería.</p>
-            <div class="owner-photos">
-                <div class="owner-photo-container">
-                    <img src="mateo.png" alt="Mateo" class="owner-photo"> <!-- Imagen de Mateo -->
+        <div id="conocenosSection" class="section">
+            <h2 style="text-align: center;">Conócenos</h2>
+            <p style="text-align: justify;">Sofía y Mateo son dos hermanos nacidos en LP. City Bell. Desde pequeños, compartieron un amor inquebrantable por la cocina, donde cada tarde se convertía en una aventura mágica. En su hogar, un acogedor taller de repostería, los aromas dulces y las risas contagiosas llenaban el aire. Con el sol filtrándose a través de las ventanas, Sofía mezclaba ingredientes mientras Mateo exploraba recetas en viejos libros familiares. Juntos, creaban delicias que hacían que el corazón de cualquiera se derritiera: galletas de chocolate crujientes y pasteles decorados con flores comestibles. Cada creación era una obra de arte, presentada en una mesa adornada con un mantel de lino blanco y jarrones de flores silvestres. Su pequeño taller se llenaba de clientes que buscaban un pedacito de felicidad, y con cada sonrisa recibida, Sofía y Mateo sabían que estaban un paso más cerca de hacer realidad su sueño de abrir su propia pastelería.</p>
+            <div class="owner-photos" style="display: flex; justify-content: center; margin-top: 20px;">
+                <div class="owner-photo-container" style="margin: 0 10px; text-align: center;">
+                    <img src="mateo.png" alt="Mateo" class="owner-photo">
                     <p class="owner-name">Mateo</p>
                 </div>
-                <div class="owner-photo-container">
-                    <img src="sofia.png" alt="Sofía" class="owner-photo"> <!-- Imagen de Sofía -->
+                <div class="owner-photo-container" style="margin: 0 10px; text-align: center;">
+                    <img src="sofia.png" alt="Sofía" class="owner-photo">
                     <p class="owner-name">Sofía</p>
                 </div>
             </div>
         </div>
 
         <!-- Sección "Antójate" -->
-        <div id="antojateSection">
-            <h2 class="section-title">Antójate</h2> <!-- Título de la sección -->
+        <div id="antojateSection" class="section">
+            <h2 style="text-align: center;">Antójate</h2>
             <div class="aesthetic-gallery">
                 <div class="photo-container">
                     <img src="5.jpg" alt="Imagen 5" class="gallery-image">
@@ -1382,8 +1390,8 @@
         </div>
 
         <!-- Nueva sección de información (después de "Antójate") -->
-        <div class="info-section">
-            <h2>Encuéntranos</h2>
+        <div class="info-section section">
+            <h2 style="text-align: center;">Encuéntranos</h2>
             <div class="info-container">
                 <div class="info-card" style="flex: 1; text-align: center;"> <!-- Añadido estilo para centrar el texto -->
                     <h3 style="font-size: 1.5em;">Horarios de Atención</h3> <!-- Aumentado tamaño de fuente -->
@@ -1448,12 +1456,21 @@
                 </div>
             </div>
             <div id="cart">
-                <h3>Tu Carrito</h3>
-                <ul id="cartItems"></ul>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0;">Tu Carrito</h3>
+                    <button onclick="emptyCart()">Vaciar carrito</button>
+                </div>
+                <ul id="cartItems" style="list-style-type: none; padding: 0;">
+                    <!-- ... existing code ... -->
+                </ul>
                 <p>Total: $<span id="cartTotal">0</span></p>
-                <p>Opciones de pago:</p>
-                <button onclick="pay('local')">Pagar en el local</button>
-                <button onclick="pay('transferencia')">Pagar con transferencia</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Opciones de pago:</span>
+                    <div style="text-align: right;">
+                        <button onclick="pay('local')">Pagar en el local</button>
+                        <button onclick="pay('transferencia')">Pagar con transferencia</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1482,9 +1499,9 @@
             menu.classList.toggle("active");
 
             if (menu.classList.contains("active")) {
-                closeIcon.style.display = "block"; // Muestra la cruz
+                closeIcon.style.display = "block"; 
             } else {
-                closeIcon.style.display = "none"; // Oculta la cruz
+                closeIcon.style.display = "none"; 
             }
         }
 
@@ -1501,38 +1518,37 @@
 
         function scrollToConocenos() {
             var conocenosSection = document.getElementById("conocenosSection");
-            conocenosSection.style.display = "block"; // Asegúrate de que la sección esté visible
-            conocenosSection.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+            conocenosSection.style.display = "block"; 
+            conocenosSection.scrollIntoView({ behavior: 'smooth' }); 
         }
 
         function scrollToAntojate() {
             var antojateSection = document.getElementById("antojateSection");
-            antojateSection.style.display = "block"; // Asegúrate de que la sección esté visible
-            antojateSection.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+            antojateSection.style.display = "block";
+            antojateSection.scrollIntoView({ behavior: 'smooth' }); 
         }
 
         function showJobForm() {
             document.getElementById('jobFormFullscreen').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Previene el scroll en el body
-            toggleMenu(); // Cierra el menú después de seleccionar una opción
+            document.body.style.overflow = 'hidden'; 
+            toggleMenu(); 
         }
 
         function hideJobForm() {
             document.getElementById('jobFormFullscreen').style.display = 'none';
-            document.body.style.overflow = ''; // Restaura el scroll en el body
+            document.body.style.overflow = ''; 
         }
 
         function submitJobForm(event) {
-            event.preventDefault(); // Evita el envío del formulario por defecto
-            // Aquí no es necesario hacer nada más, ya que el formulario se enviará a través de FormSubmit
+            event.preventDefault(); 
             alert("Tu formulario ha sido enviado. ¡Gracias por postularte!");
-            hideJobForm(); // Cierra el formulario después de enviar
+            hideJobForm(); 
         }
 
         let cart = [];
 
         function addToCart(item, price, quantity) {
-            quantity = parseInt(quantity); // Asegúrate de que la cantidad sea un número
+            quantity = parseInt(quantity); 
             for (let i = 0; i < quantity; i++) {
                 cart.push({ item, price });
             }
@@ -1544,13 +1560,13 @@
             let cartTotal = document.getElementById("cartTotal");
             cartItems.innerHTML = "";
             let total = 0;
-            let itemCounts = {}; // Objeto para contar las cantidades
+            let itemCounts = {}; 
 
             for (let item of cart) {
                 if (itemCounts[item.item]) {
-                    itemCounts[item.item].count += 1; // Incrementa el contador
+                    itemCounts[item.item].count += 1; 
                 } else {
-                    itemCounts[item.item] = { price: item.price, count: 1 }; // Inicializa el contador
+                    itemCounts[item.item] = { price: item.price, count: 1 };
                 }
             }
 
@@ -1558,6 +1574,11 @@
                 let li = document.createElement("li");
                 li.textContent = `${item} - $${itemCounts[item].price} X ${itemCounts[item].count}`; // Muestra la cantidad
                 
+                // Crear un contenedor para los botones
+                let buttonContainer = document.createElement("div");
+                buttonContainer.style.display = "flex"; // Usar flexbox para alinear los botones
+                buttonContainer.style.justifyContent = "flex-end"; // Alinear a la derecha
+
                 // Crear botón de eliminar 1
                 let removeButton = document.createElement("button");
                 removeButton.textContent = "Eliminar 1";
@@ -1568,8 +1589,11 @@
                 removeAllButton.textContent = "Eliminar todas";
                 removeAllButton.onclick = () => removeAllFromCart(item);
                 
-                li.appendChild(removeButton); // Agregar el botón de eliminar 1
-                li.appendChild(removeAllButton); // Agregar el botón de eliminar todas
+                // Agregar botones al contenedor
+                buttonContainer.appendChild(removeButton);
+                buttonContainer.appendChild(removeAllButton);
+                
+                li.appendChild(buttonContainer); // Agregar el contenedor de botones a la lista
                 cartItems.appendChild(li);
                 total += itemCounts[item].price * itemCounts[item].count; // Suma al total
             }
@@ -1605,6 +1629,12 @@
 
             cart = []; // Vacía el carrito después de la compra
             updateCart(); // Actualiza el carrito
+        }
+
+        function emptyCart() {
+            cart = []; // Vacía el carrito
+            updateCart(); // Actualiza el carrito
+            alert("El carrito ha sido vaciado."); // Mensaje de confirmación
         }
     </script>
 </body>

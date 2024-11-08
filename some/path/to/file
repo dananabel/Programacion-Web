@@ -1,0 +1,21 @@
+function renderCookie(cookie) {
+    let li = document.createElement("li");
+    li.textContent = `${cookie.name} - $${cookie.price}`;
+    
+    // Crear un contenedor para el contador
+    let counterContainer = document.createElement("div");
+    counterContainer.style.marginBottom = "5px"; // Espaciado opcional
+    let counter = document.createElement("span");
+    counter.textContent = `Cantidad: ${cookie.count}`; // Mostrar contador
+    counterContainer.appendChild(counter);
+    
+    // Crear botón de agregar al carrito
+    let addButton = document.createElement("button");
+    addButton.textContent = "Agregar al Carrito";
+    addButton.onclick = () => addToCart(cookie);
+    
+    // Agregar el contador encima del botón
+    li.appendChild(counterContainer); // Agregar contador al li
+    li.appendChild(addButton); // Agregar botón al li
+    cartItems.appendChild(li);
+}
